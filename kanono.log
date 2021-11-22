@@ -1,0 +1,4 @@
+02:12:27 [INFO] Server::run; addr=127.0.0.1:3000
+02:12:27 [INFO] listening on http://127.0.0.1:3000 
+02:12:32 [INFO] New connection: WebSocket
+02:12:32 [INFO] msg: Text("ez")
