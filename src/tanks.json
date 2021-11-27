@@ -1,0 +1,1110 @@
+[
+    {
+        "name": "Unknown Class",
+        "bodyShape": 0,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Coin",
+        "bodyShape": 8,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Square",
+        "bodyShape": 4,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Triangle",
+        "bodyShape": 3,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Pentagon",
+        "bodyShape": 5,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Hexagon",
+        "bodyShape": 6,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Bullet",
+        "bodyShape": 0,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Drone",
+        "bodyShape": 3,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 0
+    },
+    {
+        "name": "Tank",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Flank Guard",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 2
+    },
+    {
+        "name": "Triple Shot",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": 0.3490658503988659,
+                "offset": 0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": -0.3490658503988659,
+                "offset": -0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.9,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 3
+    },
+    {
+        "name": "Quad Tank",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 4.71238898038469,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 4
+    },
+    {
+        "name": "Sniper",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 2.2,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Twin",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": -0.5,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 2
+    },
+    {
+        "name": "Assassin",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 2.5,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Ranger",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 2.5,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.3,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": -0.3
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 2
+    },
+    {
+        "name": "Annihilator",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 1.9,
+                "height": 1.9,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Destroyer",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 1.5,
+                "height": 1.9,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Machine Gun",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0.15
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Negev",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 1.3,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0.15
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Mothership",
+        "bodyShape": 16,
+        "barrels": [
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 0.39269908169872414,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 0.7853981633974483,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 1.1780972450961724,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 1.9634954084936207,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 2.356194490192345,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 2.748893571891069,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 3.534291735288517,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 3.9269908169872414,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 4.319689898685966,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 4.71238898038469,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 5.105088062083414,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 5.497787143782138,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            },
+            {
+                "width": 0.2,
+                "height": 1.3,
+                "angle": 5.8904862254808625,
+                "offset": 0,
+                "trapezoidWidth": 0.1
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 16
+    },
+    {
+        "name": "Tri-Angle",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 3.6651914291880923,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 2.6179938779914944,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 3
+    },
+    {
+        "name": "Dominator",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.8,
+                "height": 1.6,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.8,
+                "height": 1.2,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": -0.45
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "shell": {
+            "shape": 6,
+            "spinning": true,
+            "spinSpeed": 1,
+            "color": 8,
+            "size": 1.25
+        },
+        "barrelsLength": 2
+    },
+    {
+        "name": "Arena Closer",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Unnamed Class",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 1,
+                "height": 1.6,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": -0.1
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 2
+    },
+    {
+        "name": "Unnamed Class",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.8,
+                "height": 1.6,
+                "angle": 3.6651914291880923,
+                "offset": 0,
+                "trapezoidWidth": -0.1
+            },
+            {
+                "width": 0.8,
+                "height": 1.6,
+                "angle": 2.6179938779914944,
+                "offset": 0,
+                "trapezoidWidth": -0.1
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 3
+    },
+    {
+        "name": "Minigun",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.75,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.3,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": -0.3
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 2
+    },
+    {
+        "name": "Smasher",
+        "bodyShape": 0,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "shell": {
+            "shape": 6,
+            "spinning": true,
+            "spinSpeed": 2,
+            "color": 8,
+            "size": 1.25
+        },
+        "barrelsLength": 0
+    },
+    {
+        "name": "Mega Smasher",
+        "bodyShape": 0,
+        "barrels": [],
+        "turrets": [],
+        "turretsLength": 0,
+        "shell": {
+            "shape": 6,
+            "spinning": true,
+            "spinSpeed": 1.5,
+            "color": 8,
+            "size": 1.4
+        },
+        "barrelsLength": 0
+    },
+    {
+        "name": "Fighter",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 3.6651914291880923,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 2.6179938779914944,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 4.71238898038469,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 5
+    },
+    {
+        "name": "Octo Tank",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0.7853981633974483,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 2.356194490192345,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 3.9269908169872414,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 4.71238898038469,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 5.497787143782138,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 8
+    },
+    {
+        "name": "Penta Shot",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": -0.6981317007977318,
+                "offset": -0.2,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 0.6981317007977318,
+                "offset": 0.2,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": 0.3490658503988659,
+                "offset": 0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": -0.3490658503988659,
+                "offset": -0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.9,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 5
+    },
+    {
+        "name": "Booster",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.35,
+                "angle": 2.443460952792061,
+                "offset": -0.1,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.35,
+                "angle": 3.839724354387525,
+                "offset": 0.1,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 3.6651914291880923,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 2.6179938779914944,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 5
+    },
+    {
+        "name": "Hybrid",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 1.5,
+                "height": 1.9,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": 0.25
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 2
+    },
+    {
+        "name": "Overseer",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 4.71238898038469,
+                "offset": 0,
+                "trapezoidWidth": 0.25
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "trapezoidWidth": 0.25
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 2
+    },
+    {
+        "name": "Overlord",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0.25
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 1.5707963267948966,
+                "offset": 0,
+                "trapezoidWidth": 0.25
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": 0.25
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 4.71238898038469,
+                "offset": 0,
+                "trapezoidWidth": 0.25
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 4
+    },
+    {
+        "name": "Flank Penta Shot",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": -0.6981317007977318,
+                "offset": -0.2,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 0.6981317007977318,
+                "offset": 0.2,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": 0.3490658503988659,
+                "offset": 0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": -0.3490658503988659,
+                "offset": -0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.9,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 2.443460952792061,
+                "offset": -0.2,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.4,
+                "angle": 3.839724354387525,
+                "offset": 0.2,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": 3.490658503988659,
+                "offset": 0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.7,
+                "angle": 2.792526803190927,
+                "offset": -0.15,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.9,
+                "angle": 3.141592653589793,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 10
+    },
+    {
+        "name": "Twin Flank",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": -0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 3.141592653589793,
+                "offset": 0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 3.141592653589793,
+                "offset": -0.5,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 4
+    },
+    {
+        "name": "Triple Twin",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 0,
+                "offset": -0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 2.0943951023931953,
+                "offset": 0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 2.0943951023931953,
+                "offset": -0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 4.1887902047863905,
+                "offset": 0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.8,
+                "angle": 4.1887902047863905,
+                "offset": -0.5,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 6
+    },
+    {
+        "name": "Auto Turret",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 1,
+                "height": 2,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 1
+    },
+    {
+        "name": "Triplet",
+        "bodyShape": 0,
+        "barrels": [
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 0,
+                "offset": 0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 0.9,
+                "height": 1.5,
+                "angle": 0,
+                "offset": -0.5,
+                "trapezoidWidth": 0
+            },
+            {
+                "width": 1,
+                "height": 1.8,
+                "angle": 0,
+                "offset": 0,
+                "trapezoidWidth": 0
+            }
+        ],
+        "turrets": [],
+        "turretsLength": 0,
+        "barrelsLength": 3
+    }
+]
