@@ -1,5 +1,6 @@
 use crate::types;
 use cgmath::Vector2;
+use std::any::Any;
 
 pub mod tank;
 
@@ -39,7 +40,7 @@ pub trait Entity: Send + Sync + std::fmt::Debug {
     fn set_alpha(&mut self, alpha: f32);
     fn set_health(&mut self, health: f32);
 
-    fn update(&mut self, dt: f32);
+    fn update(&mut self, dt: f32) -> Option<fazo::Entity>;
 
     fn show_name(&self) -> bool;
     fn show_health(&self) -> bool;
@@ -49,4 +50,9 @@ pub trait Entity: Send + Sync + std::fmt::Debug {
     fn networkable(&self) -> bool {
         false
     }
+
+    fn as_any(&self) -> &dyn Any;
+    fn as_any_mut(&mut self) -> &mut dyn Any;
+
+    fn create_fazo_entity(&self) -> fazo::Entity;
 }

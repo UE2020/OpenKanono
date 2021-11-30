@@ -3,6 +3,7 @@ use crate::types;
 use cgmath::Vector2;
 use std::collections::HashMap;
 pub mod entity;
+pub mod util;
 use log::*;
 
 #[derive(Debug)]
@@ -14,6 +15,7 @@ pub struct Arena {
     last_update: std::time::Instant,
     frame: usize,
     registered_connections: HashMap<types::Identifer, types::Connection>,
+    solver: fazo::BroadSolver,
 }
 
 impl Arena {
@@ -26,6 +28,7 @@ impl Arena {
             last_update: std::time::Instant::now(),
             frame: 0,
             registered_connections: HashMap::new(),
+            solver: fazo::BroadSolver::new(width, height, 7),
         }
     }
 
@@ -33,6 +36,7 @@ impl Arena {
         self.frame += 1;
         let elapsed = self.last_update.elapsed();
         self.last_update = std::time::Instant::now();
+        let dt = elapsed.as_millis() as f32 / 33.0;
         if elapsed.as_millis() > 0 && self.frame % 100 == 0 {
             info!(
                 "Arena cycle(elapsed={:?}, fps={}, tick={})",
@@ -42,31 +46,73 @@ impl Arena {
             );
         }
 
-        let mut entities = vec![];
-        let mut networkable_entities = vec![];
+        let mut disconnected_ids = vec![];
 
-        for (id, entity) in self.entities.iter_mut() {
-            entity.set_radius((self.frame as f32 / 50.0).sin().abs() * 100.0 + 100.0);
-            entities.push(&**entity);
-            if entity.networkable() {
-                networkable_entities.push(&**entity);
+        for (_, entity) in self.entities.iter_mut() {
+            let fazo_entity = match entity.update(dt) {
+                Some(fazo_entity) => {
+                    self.solver.mutate(&fazo_entity);
+                    fazo_entity
+                },
+                None => entity.create_fazo_entity(),
+            };
+            
+            let candidates = self.solver.solve(&fazo::Query {
+                x: fazo_entity.x,
+                y: fazo_entity.y,
+                width: fazo_entity.width,
+                height: fazo_entity.height,
+            });
+
+            for candidate in candidates {
+                if candidate.id == fazo_entity.id {
+                    continue;
+                }
+                let collision = util::test_circular_collision(&cgmath::Vector2::new(candidate.x + candidate.radius, candidate.y + candidate.radius), candidate.radius, &entity.get_position(), entity.get_radius());
+                if collision {
+                    let angle = ((candidate.y + candidate.radius) as f32 - entity.get_y()).atan2((candidate.x + candidate.radius) as f32 - entity.get_x());
+                    let push_vec = Vector2::new(angle.cos(), angle.sin());
+                    entity.set_velocity(entity.get_velocity() + -push_vec * 0.5);
+                }
             }
         }
 
-        let census = protocol::ClientboundPacket::Census { entities };
-        let mut broken_ids = vec![];
+        for (id, socket) in self.registered_connections.iter() {
+            let mut entities = vec![];
+            for (_, entity) in self.entities.iter() {
+                entities.push(&**entity);
+            }
 
-        for (id, ws) in self.registered_connections.iter() {
-            if ws
+            let census = protocol::ClientboundPacket::Census { entities };
+
+            if let Some(entity) = self.entities.get(id) {
+                if socket
+                    .send(warp::ws::Message::binary(
+                        protocol::ClientboundPacket::CameraUpdate {
+                            x: entity.get_x() as i32,
+                            y: entity.get_y() as i32,
+                            fov: 1.5,
+                        }
+                        .to_bytes(),
+                    ))
+                    .is_err()
+                {
+                    disconnected_ids.push(entity.get_id());
+                    error!("Failed to send census packet");
+                    continue;
+                }
+            };
+
+            if socket
                 .send(warp::ws::Message::binary(census.to_bytes()))
                 .is_err()
             {
-                broken_ids.push(*id);
+                disconnected_ids.push(*id);
                 error!("Failed to send census packet");
                 continue;
             }
 
-            if ws
+            if socket
                 .send(warp::ws::Message::binary(
                     protocol::ClientboundPacket::LeaderBoard {
                         leaderboard: vec![
@@ -87,9 +133,7 @@ impl Arena {
                                 id: 2,
                                 class: 0,
                                 color: types::Color::CohortBlue,
-                                name: format!(
-                                    "TICK: {}", self.frame
-                                ),
+                                name: format!("TICK: {}", self.frame),
                                 score: 0,
                             },
                         ],
@@ -98,17 +142,26 @@ impl Arena {
                 ))
                 .is_err()
             {
-                broken_ids.push(*id);
+                disconnected_ids.push(*id);
                 error!("Failed to send leaderboard packet");
             }
         }
 
-        for id in broken_ids {
+        for id in disconnected_ids {
             self.kick_connection(id);
         }
     }
 
     pub fn add_entity(&mut self, entity: Box<dyn entity::Entity>) {
+        let r = entity.get_radius() as f32;
+        self.solver.insert(&fazo::Entity {
+            id: entity.get_id() as u64,
+            x: entity.get_x() as f32 - r,
+            y: entity.get_y() as f32 - r,
+            width: r * 2.0,
+            height: r * 2.0,
+            radius: r,
+        });
         self.entities.insert(entity.get_id(), entity);
     }
 
@@ -118,6 +171,17 @@ impl Arena {
             Some(conn) => conn,
             None => return false,
         };
+
+        if conn
+            .send(warp::ws::Message::binary(
+                protocol::ClientboundPacket::Joining.to_bytes(),
+            ))
+            .is_err()
+        {
+            self.kick_connection(id);
+            return false;
+        }
+
         let tank = entity::tank::Tank::new_player(
             id,
             name,
@@ -129,7 +193,33 @@ impl Arena {
             conn.clone(),
         );
         self.add_entity(Box::new(tank));
+
         true
+    }
+
+    pub fn input(
+        &mut self,
+        id: types::Identifer,
+        left: bool,
+        right: bool,
+        up: bool,
+        down: bool,
+        angle: f32,
+        lmb: bool,
+        mx: i16,
+        my: i16,
+        rmb: bool,
+    ) {
+        let entity = self.entities.get_mut(&id);
+        match entity {
+            Some(entity) => {
+                let entity = entity.as_any_mut();
+                if let Some(tank) = entity.downcast_mut::<entity::tank::Tank>() {
+                    tank.input(left, right, up, down, angle, lmb, mx, my, rmb);
+                }
+            }
+            None => {}
+        }
     }
 
     pub fn new_connection(&mut self, conn: types::Connection) -> types::Identifer {

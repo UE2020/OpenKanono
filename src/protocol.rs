@@ -78,7 +78,6 @@ impl<'entities> ClientboundPacket<'entities> {
                 let mut buf = crate::binary::StreamPeerBuffer::new();
                 buf.put_u8(0x2);
                 buf.put_u32(entities.len() as u32);
-                dbg!(entities.len());
                 for entity in entities {
                     buf.put_u32(entity.get_id() as u32);
                     buf.put_32(entity.get_x() as i32);

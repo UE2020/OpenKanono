@@ -1,5 +1,19 @@
 use crate::types;
 use cgmath::Vector2;
+use std::any::Any;
+
+#[derive(Debug, Default)]
+pub struct Input {
+    pub left: bool,
+    pub right: bool,
+    pub up: bool,
+    pub down: bool,
+    pub lmb: bool,
+    pub angle: f32,
+    pub mx: i16,
+    pub my: i16,
+    pub rmb: bool,
+}
 
 #[derive(Debug, Clone)]
 pub enum TankType {
@@ -22,6 +36,8 @@ pub struct Tank {
     color: types::Color,
     alpha: f32,
     health: f32,
+    input: Input,
+    speed: f32,
 }
 
 impl Tank {
@@ -46,10 +62,35 @@ impl Tank {
             tank_type: TankType::Player(socket),
             score: 0,
             class: 0,
-            color: types::Color::Blue,
+            color: types::Color::ChargingCyan,
             alpha: 1.0,
             health: 1000.0,
+            input: Default::default(),
+            speed: 1.0,
         }
+    }
+
+    pub fn input(
+        &mut self,
+        left: bool,
+        right: bool,
+        up: bool,
+        down: bool,
+        angle: f32,
+        lmb: bool,
+        mx: i16,
+        my: i16,
+        rmb: bool,
+    ) {
+        self.input.left = left;
+        self.input.right = right;
+        self.input.up = up;
+        self.input.down = down;
+        self.input.angle = angle;
+        self.input.lmb = lmb;
+        self.input.mx = mx;
+        self.input.my = my;
+        self.input.rmb = rmb;
     }
 }
 
@@ -180,8 +221,20 @@ impl super::Entity for Tank {
         self.health = health;
     }
 
-    fn update(&mut self, dt: f32) {
+    fn update(&mut self, dt: f32) -> Option<fazo::Entity> {
+        let current_entity = self.create_fazo_entity();
+        self.velocity.x += (self.input.right as i8 - self.input.left as i8) as f32 * self.speed;
+        self.velocity.y += (self.input.down as i8 - self.input.up as i8) as f32 * self.speed;
         self.position += self.velocity * dt;
+
+        self.velocity *= 0.9;
+
+        let new_entity = self.create_fazo_entity();
+        if current_entity.x != new_entity.x || current_entity.y != new_entity.y || current_entity.radius != new_entity.radius {
+            Some(new_entity)
+        } else {
+            None
+        }
     }
 
     fn show_name(&self) -> bool {
@@ -208,6 +261,25 @@ impl super::Entity for Tank {
         match &self.tank_type {
             TankType::Player(_) => true,
             _ => false,
+        }
+    }
+
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+
+    fn as_any_mut(&mut self) -> &mut dyn Any {
+        self
+    }
+
+    fn create_fazo_entity(&self) -> fazo::Entity {
+        fazo::Entity {
+            id: self.id as u64,
+            x: self.position.x - self.radius,
+            y: self.position.y - self.radius,
+            width: self.radius * 2.0,
+            height: self.radius * 2.0,
+            radius: self.radius,
         }
     }
 }

@@ -144,8 +144,34 @@ async fn handle_connection(ws: WebSocket, arena: Arena) {
 
         match parsed {
             Ok(protocol::ServerboundPacket::Spawn(name)) => {
-                arena.write().await.player_spawn(id.unwrap(), name.clone());
+                if !arena.write().await.player_spawn(id.unwrap(), name.clone()) {
+                    break;
+                }
                 info!("Got spawn packet(uid={:?}): {}", id, name);
+            }
+            Ok(protocol::ServerboundPacket::Input {
+                left,
+                right,
+                up,
+                down,
+                lmb,
+                angle,
+                mx,
+                my,
+                rmb,
+            }) => {
+                arena.write().await.input(
+                    id.unwrap(),
+                    left,
+                    right,
+                    up,
+                    down,
+                    angle,
+                    lmb,
+                    mx,
+                    my,
+                    rmb,
+                );
             }
             Ok(_) => {}
             Err(e) => {
