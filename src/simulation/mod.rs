@@ -10,11 +10,11 @@ use log::*;
 pub struct Arena {
     width: u32,
     height: u32,
-    id: types::Identifer,
-    entities: HashMap<types::Identifer, Box<dyn entity::Entity>>,
+    id: types::Identifier,
+    entities: HashMap<types::Identifier, Box<dyn entity::Entity>>,
     last_update: std::time::Instant,
     frame: usize,
-    registered_connections: HashMap<types::Identifer, types::Connection>,
+    registered_connections: HashMap<types::Identifier, types::Connection>,
     solver: fazo::BroadSolver,
 }
 
@@ -53,10 +53,10 @@ impl Arena {
                 Some(fazo_entity) => {
                     self.solver.mutate(&fazo_entity);
                     fazo_entity
-                },
+                }
                 None => entity.create_fazo_entity(),
             };
-            
+
             let candidates = self.solver.solve(&fazo::Query {
                 x: fazo_entity.x,
                 y: fazo_entity.y,
@@ -68,9 +68,18 @@ impl Arena {
                 if candidate.id == fazo_entity.id {
                     continue;
                 }
-                let collision = util::test_circular_collision(&cgmath::Vector2::new(candidate.x + candidate.radius, candidate.y + candidate.radius), candidate.radius, &entity.get_position(), entity.get_radius());
+                let collision = util::test_circular_collision(
+                    &cgmath::Vector2::new(
+                        candidate.x + candidate.radius,
+                        candidate.y + candidate.radius,
+                    ),
+                    candidate.radius,
+                    &entity.get_position(),
+                    entity.get_radius(),
+                );
                 if collision {
-                    let angle = ((candidate.y + candidate.radius) as f32 - entity.get_y()).atan2((candidate.x + candidate.radius) as f32 - entity.get_x());
+                    let angle = ((candidate.y + candidate.radius) as f32 - entity.get_y())
+                        .atan2((candidate.x + candidate.radius) as f32 - entity.get_x());
                     let push_vec = Vector2::new(angle.cos(), angle.sin());
                     entity.set_velocity(entity.get_velocity() + -push_vec * 0.5);
                 }
@@ -165,7 +174,7 @@ impl Arena {
         self.entities.insert(entity.get_id(), entity);
     }
 
-    pub fn player_spawn(&mut self, id: types::Identifer, name: String) -> bool {
+    pub fn player_spawn(&mut self, id: types::Identifier, name: String) -> bool {
         let conn = self.registered_connections.get(&id);
         let conn = match conn {
             Some(conn) => conn,
@@ -199,7 +208,7 @@ impl Arena {
 
     pub fn input(
         &mut self,
-        id: types::Identifer,
+        id: types::Identifier,
         left: bool,
         right: bool,
         up: bool,
@@ -222,13 +231,19 @@ impl Arena {
         }
     }
 
-    pub fn new_connection(&mut self, conn: types::Connection) -> types::Identifer {
+    pub fn new_connection(&mut self, conn: types::Connection) -> types::Identifier {
         let new_id = self.alloc_id();
         self.registered_connections.insert(new_id, conn);
         new_id
     }
 
-    pub fn kick_connection(&mut self, id: types::Identifer) -> bool {
+    /// **WARNING**: This function will NOT take care of the entitiy's registered connection.
+    pub fn delete_entity(&mut self, id: types::Identifier) {
+        self.entities.remove(&id);
+        self.solver.delete(id as u64);
+    }
+
+    pub fn kick_connection(&mut self, id: types::Identifier) -> bool {
         {
             match match self.registered_connections.get(&id) {
                 Some(conn) => conn,
@@ -241,11 +256,11 @@ impl Arena {
             }
         }
         self.registered_connections.remove(&id); // remove connection
-        self.entities.remove(&id); // remove entity
+        self.delete_entity(id); // remove entity
         true
     }
 
-    pub fn alloc_id(&mut self) -> types::Identifer {
+    pub fn alloc_id(&mut self) -> types::Identifier {
         self.id += 1;
         self.id
     }

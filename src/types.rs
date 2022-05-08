@@ -3,7 +3,7 @@ use rand::{
     Rng,
 };
 
-pub type Identifer = usize;
+pub type Identifier = usize;
 pub type Connection = tokio::sync::mpsc::UnboundedSender<warp::ws::Message>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

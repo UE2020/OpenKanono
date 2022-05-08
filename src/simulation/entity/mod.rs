@@ -5,7 +5,7 @@ use std::any::Any;
 pub mod tank;
 
 pub trait Entity: Send + Sync + std::fmt::Debug {
-    fn get_id(&self) -> types::Identifer;
+    fn get_id(&self) -> types::Identifier;
     fn get_x(&self) -> f32;
     fn get_y(&self) -> f32;
     fn get_position(&self) -> Vector2<f32>;

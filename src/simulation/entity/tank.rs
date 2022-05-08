@@ -23,7 +23,7 @@ pub enum TankType {
 
 #[derive(Debug)]
 pub struct Tank {
-    id: crate::types::Identifer,
+    id: types::Identifier,
     name: String,
     position: Vector2<f32>,
     velocity: Vector2<f32>,
@@ -42,7 +42,7 @@ pub struct Tank {
 
 impl Tank {
     pub fn new_player(
-        id: crate::types::Identifer,
+        id: types::Identifier,
         name: String,
         x: f32,
         y: f32,
@@ -95,7 +95,7 @@ impl Tank {
 }
 
 impl super::Entity for Tank {
-    fn get_id(&self) -> crate::types::Identifer {
+    fn get_id(&self) -> types::Identifier {
         self.id
     }
 
@@ -230,7 +230,10 @@ impl super::Entity for Tank {
         self.velocity *= 0.9;
 
         let new_entity = self.create_fazo_entity();
-        if current_entity.x != new_entity.x || current_entity.y != new_entity.y || current_entity.radius != new_entity.radius {
+        if current_entity.x != new_entity.x
+            || current_entity.y != new_entity.y
+            || current_entity.radius != new_entity.radius
+        {
             Some(new_entity)
         } else {
             None

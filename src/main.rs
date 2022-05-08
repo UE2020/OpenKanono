@@ -71,7 +71,7 @@ async fn main() {
 async fn handle_connection(ws: WebSocket, arena: Arena) {
     info!("New connection: {:?}", ws);
 
-    let mut id: Option<types::Identifer> = None;
+    let mut id: Option<types::Identifier> = None;
 
     // Split the socket into a sender and receive of messages.
     let (mut ws_tx, mut ws_rx) = ws.split();
